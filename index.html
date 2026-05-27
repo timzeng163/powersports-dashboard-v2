@@ -3,17 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <title>Vehicles Dashboard</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    .card {
+      border: 1px solid #ddd;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+    .brand {
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
 </head>
+
 <body>
   <h1>🚗 Vehicles Dashboard</h1>
-  <pre id="output">Loading...</pre>
+  <div id="app">Loading...</div>
 
   <script>
     fetch('./vehicles.json')
       .then(res => res.json())
       .then(data => {
-        document.getElementById('output').textContent =
-          JSON.stringify(data, null, 2)
+        const app = document.getElementById('app')
+        app.innerHTML = ''
+
+        Object.keys(data).forEach(model => {
+          const block = document.createElement('div')
+          block.className = 'card'
+
+          let html = `<h2>${model}</h2>`
+
+          Object.keys(data[model]).forEach(brand => {
+            html += `<div class="brand">🏷 ${brand}</div>`
+
+            data[model][brand].forEach(item => {
+              html += `
+                <div>
+                  🚙 ${item.id}<br/>
+                  📅 Year: ${item.year}<br/>
+                  📦 ${item.category}
+                </div>
+                <hr/>
+              `
+            })
+          })
+
+          block.innerHTML = html
+          app.appendChild(block)
+        })
       })
   </script>
 </body>
