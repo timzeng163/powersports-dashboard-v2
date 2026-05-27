@@ -1,0 +1,26 @@
+{
+  "Ranger XP 1000": {
+    "Polaris": [
+      {
+        "id": "Polaris-Ranger XP 1000-2025",
+        "brand": "Polaris",
+        "model": "Ranger XP 1000",
+        "year": 2025,
+        "source": "mock",
+        "category": "off-road"
+      }
+    ]
+  },
+  "Maverick X3": {
+    "Can-Am": [
+      {
+        "id": "Can-Am-Maverick X3-2025",
+        "brand": "Can-Am",
+        "model": "Maverick X3",
+        "year": 2025,
+        "source": "mock",
+        "category": "off-road"
+      }
+    ]
+  }
+}

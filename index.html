@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vehicles Dashboard</title>
+</head>
+<body>
+  <h1>🚗 Vehicles Dashboard</h1>
+  <pre id="output">Loading...</pre>
+
+  <script>
+    fetch('./vehicles.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('output').textContent =
+          JSON.stringify(data, null, 2)
+      })
+  </script>
+</body>
+</html>
